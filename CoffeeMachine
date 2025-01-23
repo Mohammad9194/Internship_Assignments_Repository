@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+abstract class CoffeeMachine {
+    abstract void finalizePreparation();
+
+    public void boilWater() {
+        System.out.println("Boiling water...");
+    }
+
+    public void mixIngredients() {
+        System.out.println("Mixing ingredients...");
+    }
+
+    public void prepareCoffee() {
+        boilWater();
+        mixIngredients();
+        finalizePreparation();
+    }
+}
+
+
+class Latte extends CoffeeMachine {
+    @Override
+    void finalizePreparation() {
+        System.out.println("Finalizing the preparation of a delicious Latte.");
+    }
+}
+
+class Cappuccino extends CoffeeMachine {
+    @Override
+    void finalizePreparation() {
+        System.out.println("Finalizing the preparation of a smooth Cappuccino.");
+    }
+}
+
+
+class Mocha extends CoffeeMachine {
+    @Override
+    void finalizePreparation() {
+        System.out.println("Finalizing the preparation of a rich Mocha.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Welcome to the Coffee Vending Machine!");
+        System.out.println("Please select the type of coffee:");
+        System.out.println("1. Latte");
+        System.out.println("2. Mocha");
+        System.out.println("3. Cappuccino");
+
+        int choice = scanner.nextInt();
+
+
+        CoffeeMachine coffee = null;
+
+        if (choice == 1) {
+            coffee = new Latte();
+        } else if (choice == 2) {
+            coffee = new Mocha();
+        } else if (choice == 3) {
+            coffee = new Cappuccino(); 
+        } else {
+            System.out.println("Invalid choice! Please select 1, 2, or 3.");
+            return;
+        }
+
+        coffee.prepareCoffee();
+    }
+}
