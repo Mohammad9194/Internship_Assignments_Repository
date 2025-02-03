@@ -12,3 +12,10 @@ public class ListExample {
         System.out.println("Second Fruit: " + fruits.get(1));  // Access by index
     }
 }
+
+Output----
+Fruits List: [Apple, Banana, Orange, Apple]
+Second Fruit: Banana
+
+Process finished with exit code 0
+
